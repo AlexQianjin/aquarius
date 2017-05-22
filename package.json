@@ -1,0 +1,49 @@
+{
+  "name": "aquarius",
+  "version": "1.0.0",
+  "description": "for learning react",
+  "main": "app.js",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.12",
+    "browserify": "^14.3.0",
+    "browserify-middleware": "^7.1.0",
+    "express": "^4.15.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "reactify": "^1.1.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "history": "^4.6.1",
+    "jsxstyle": "^1.0.2",
+    "lodash": "^4.17.4",
+    "react-bootstrap": "^0.31.0",
+    "react-router": "^4.1.1",
+    "react-router-bootstrap": "^0.24.2",
+    "react-router-dom": "^4.1.1",
+    "reflux": "^6.4.1",
+    "serve-favicon": "^2.4.3",
+    "superagent": "^3.5.2",
+    "uglifyjs": "^2.4.11",
+    "watchify": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexQianjin/aquarius.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Alex Qin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexQianjin/aquarius/issues"
+  },
+  "homepage": "https://github.com/AlexQianjin/aquarius#readme"
+}
