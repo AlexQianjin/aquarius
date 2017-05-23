@@ -22,6 +22,11 @@ app.get(['*.png', '*.jpg', '*.css', '*.map'], function (req,
     res.sendFile(__dirname + "/public/" + req.path);
 });
 
+// json
+app.get('*.json', function (req, res) {
+res.sendFile(__dirname+"/public/"+req.path);
+});
+
 // all other requests will be routed to index.html
 app.get('*', function (req, res) {
     res.sendFile(__dirname + "/public/index.html");

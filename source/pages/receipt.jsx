@@ -1,11 +1,8 @@
 "use strict";
 import React from "react";
 import { render } from "react-dom";
-const Receipt = React.createClass({
-    render() {
-        return (
-            <div />
-        );
-    }
-});
+
+const Receipt = (props) => (
+    <div />
+);
 module.exports = Receipt;

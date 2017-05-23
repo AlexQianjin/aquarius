@@ -2,10 +2,9 @@
 import React from "react";
 import { render } from "react-dom";
 import { Grid, Row, Col, Panel } from "react-bootstrap";
-const Company = React.createClass({
-    render() {
-        return (
-            <Grid>
+
+const Company = () => (
+    <Grid>
                 <Row>
                     <Col xs={12}>
                         <Panel>
@@ -17,7 +16,5 @@ const Company = React.createClass({
                     </Col>
                 </Row>
             </Grid>
-        );
-    }
-});
+);
 module.exports = Company;

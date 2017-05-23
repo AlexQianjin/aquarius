@@ -1,11 +1,8 @@
 "use strict";
 import React from "react";
 import { render } from "react-dom";
-const Item = React.createClass({
-    render() {
-        return (
-            <div />
-        );
-    }
-});
+
+const Item = (props) => (
+    <div />
+);
 module.exports = Item;

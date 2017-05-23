@@ -2,11 +2,8 @@
 import React from "react";
 import { render } from "react-dom";
 
-const Products = React.createClass({
-    render() {
-        return (
-            <div />
-        );
-    }
-});
+const Products = () => (
+    <div />
+);
+
 module.exports = Products;

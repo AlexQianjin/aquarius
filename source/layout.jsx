@@ -2,21 +2,16 @@
 import React from "react";
 import { render } from "react-dom";
 import Menu from "./components/menu.jsx";
-import Footer from "./components/footer";
+import Footer from "./components/footer.jsx";
+// import Actions from "./actions/products";
+// import ProductStore from "./stores/products";
 
-const Layout = React.createClass({
-    render() {
-        return (
-            <div>
-                <Menu />
+const Layout = (props) => (
+    <div>
+        <Menu cart={props.cart} />
+        {React.cloneElement(props.children)}
+        <Footer />
+    </div>
+);
 
-                    {React.cloneElement(
-                        this.props.children,
-                        this.state
-                    )}
-
-                <Menu />
-            </div>
-        );
-    }
-});
+module.exports = Layout;
