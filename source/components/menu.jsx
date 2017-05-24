@@ -5,8 +5,10 @@ import { Nav, NavItem, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
-const Menu = (props) => (
-    <Navbar inverse fixedTop>
+class Menu extends React.Component {
+    render() {
+        return (
+            <Navbar inverse fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link to="/">My webshop</Link>
@@ -18,16 +20,18 @@ const Menu = (props) => (
                         <LinkContainer to="/company">
                             <Button bsStyle="link">About</Button>
                         </LinkContainer>
-                        <LinkContainer  to="/products">
+                        <LinkContainer to="/products">
                             <Button bsStyle="link">Products</Button>
                         </LinkContainer>
                     </Nav>
                     <Nav pullRight>
                         <LinkContainer to="/checkout">
-                            <Button bsStyle="link">Your cart: {props.cart.length} items</Button>
+                            <Button bsStyle="link">Your cart: {this.props.cart.length} items</Button>
                         </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-);
+        );
+    }
+}
 module.exports = Menu;

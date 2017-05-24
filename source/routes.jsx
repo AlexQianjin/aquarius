@@ -11,10 +11,10 @@ import Menu from "./components/menu.jsx";
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-let cart = [];
+let _cart = [222,333];
 const Routes = (
     <Router>
-        <Layout cart={cart}>
+        <Layout cart={_cart}>
             <Switch>
                 <Route exact={true} name="home" path="/" component={Home} />
                 <Route name="company" path="/company" component={Company} />
