@@ -1,44 +1,33 @@
-var express = require("express");
-var browserify = require('browserify-middleware');
-var babelify = require("babelify");
-var browserSync = require('browser-sync');
-var app = express();
+var path = require('path');
+var express = require('express');
+var webpack = require('webpack');
+var config = require('./webpack.config');
 var port = process.env.PORT || 8080;
+var app = express();
+var compiler = webpack(config);
 
-browserify.settings({
-    transform: [babelify.configure({
-    })],
-    presets: ["es2015", "react"],
-    extensions: ['.js', '.jsx'],
-    grep: /\.jsx?$/
-});
+app.use('/', express.static(path.join(__dirname, 'assets')));
 
-// serve client code via browserify
-app.get('/bundle.js', browserify(__dirname+'/source/app.jsx'));
+app.use(require('webpack-dev-middleware')(compiler, {
+    quiet: true,
+    noInfo: true,
+    publicPath: config.output.publicPath
+}));
 
-// resources
-app.get(['*.png', '*.jpg', '*.css', '*.map'], function (req,
-    res) {
-    res.sendFile(__dirname + "/public/" + req.path);
-});
+app.use(require("webpack-hot-middleware")(compiler, {
+    log: console.log,
+    path: '/__webpack_hmr',
+    heartbeat: 10 * 1000
+}));
 
-// json
-app.get('*.json', function (req, res) {
-res.sendFile(__dirname+"/public/"+req.path);
-});
-
-// all other requests will be routed to index.html
 app.get('*', function (req, res) {
-    res.sendFile(__dirname + "/public/index.html");
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Run the server
-app.listen(port, function () {
-    browserSync({
-        proxy: 'localhost:' + port,
-        files: ['source/**/*.{jsx}', 'public/**/*.{css}'],
-        options: {
-            ignored: 'node_modules'
-        }
-    });
+app.listen(port, 'localhost', function (err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log('Listening at http://localhost:' + port);
 });
