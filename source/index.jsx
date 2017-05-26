@@ -2,12 +2,23 @@ import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { render, findDOMNode } from 'react-dom';
 import store from './stores/store';
-import { login } from './actions/login'
+import { login, setLoginDetails } from './actions/login'
 import { Provider } from 'react-redux'
 import { connect } from 'react-redux'
 import DevTools from './devtools';
 
 class App extends Component {
+    componentWillMount() {
+        const { dispatch, } = this.props;
+        let storedSessionLogin = sessionStorage.getItem('login');
+        if (storedSessionLogin) {
+            dispatch(
+                setLoginDetails(
+                    JSON.parse(storedSessionLogin).loginResponse)
+            );
+        }
+    }
+    
     handleSelect() {
         const { dispatch } = this.props;
         dispatch(
@@ -80,12 +91,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
     const { user } = state;
-    const { message } = user || {
-            message: ""
-        }
-    return {
-        user
-    }
+    const { message } = user || { message: "" };
+
+    return { user };
 }
 
 const LoginApp = connect(mapStateToProps)(App);

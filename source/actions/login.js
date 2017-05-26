@@ -15,6 +15,7 @@ export function login(userData) {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer 1234567890'
         },
+        mode: 'no-cors',
         method: 'post',
         body: JSON.stringify(body)
     }
@@ -25,16 +26,26 @@ export function login(userData) {
     }
 }
 
-function setLoginDetails(json) {
-    if (json.length === 0) {
-        return {
-            type: LOGIN_FAIL,
-            timestamp: Date.now()
-        }
-    }
-    return {
+export function setLoginDetails(json) {
+    const loginData = {
         type: LOGIN_USER,
         loginResponse: json,
         timestamp: Date.now()
-    }
+    };
+    sessionStorage.setItem('login', JSON.stringify(loginData));
+    return loginData;
 }
+
+// function setLoginDetails(json) {
+//     if (json.length === 0) {
+//         return {
+//             type: LOGIN_FAIL,
+//             timestamp: Date.now()
+//         }
+//     }
+//     return {
+//         type: LOGIN_USER,
+//         loginResponse: json,
+//         timestamp: Date.now()
+//     }
+// }
