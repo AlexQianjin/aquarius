@@ -1,10 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
 
+
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractLess = new ExtractTextPlugin('assets/[name].css');
-
+// const extractLess = new ExtractTextPlugin('[name].[contenthash].css');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -20,8 +20,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        extractLess
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         loaders: [{
@@ -34,8 +33,9 @@ module.exports = {
             }
         },
         {
-            test: /\.(less|css)$/,
-            loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'less-loader' })
+            test: /\.less$/,
+            exclude: /node_modules/,
+            loader: 'style-loader!css-loader!less-loader'
         }]
     },
     resolve: {
