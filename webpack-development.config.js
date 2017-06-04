@@ -23,19 +23,26 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query:
-            {
-                presets:['es2015', 'stage-2', 'react']
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                presets: ['es2015', 'stage-2', 'react']
+                }
             }
-        },
-        {
+            },
+            {
             test: /\.less$/,
             exclude: /node_modules/,
-            loader: 'style-loader!css-loader!less-loader'
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "less-loader" // compiles Less to CSS
+            }]
         }]
     },
     resolve: {
