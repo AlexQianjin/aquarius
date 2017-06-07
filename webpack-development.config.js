@@ -1,13 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
 
+
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractLess = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
-});
-
+// const extractLess = new ExtractTextPlugin('[name].[contenthash].css');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -23,33 +20,32 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        extractLess
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query:
-            {
-                presets:['es2015', 'stage-2', 'react']
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                presets: ['es2015', 'stage-2', 'react']
+                }
             }
-        },
-        {
+            },
+            {
             test: /\.less$/,
-            use: extractLess.extract({
-                use: [{
-                    loader: "css-loader"
-                }, {
-                    loader: "less-loader"
-                }],
-                // use style-loader in development
-                fallback: "style-loader"
-            })
+            exclude: /node_modules/,
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "less-loader" // compiles Less to CSS
+            }]
         }]
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.css', '.less']
     }
 };
