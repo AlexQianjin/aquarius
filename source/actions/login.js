@@ -15,12 +15,13 @@ export function login(userData) {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer 1234567890'
         },
-        mode: 'no-cors',
+        mode: 'cors',
         method: 'post',
         body: JSON.stringify(body)
     }
+    //http://reactjsblueprintsuseradmin.herokuapp.com/v1/login
     return dispatch => {
-        return fetch(`http://reactjsblueprintsuseradmin.herokuapp.com/v1/login`, options)
+        return fetch(`http://localhost:5000/v1/login`, options)
             .then(response => response.json())
             .then(json => dispatch(setLoginDetails(json)))
     }

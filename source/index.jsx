@@ -32,8 +32,8 @@ class App extends Component {
     renderWelcomeMessage() {
         const { user } = this.props;
         let response;
-        if (user.userData.name) {
-            response = "Welcome " + user.userData.name;
+        if (user.userData.username) {
+            response = "Welcome " + user.userData.username;
         }
         else {
             response = user.error;
