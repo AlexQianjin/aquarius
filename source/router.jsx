@@ -1,11 +1,13 @@
-import React from 'react';
-import Root from './app';
-import { render } from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+"use strict";
 
-render(
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Root from './app';
+
+const Routes = (
     <BrowserRouter>
         <Route path="/" component={Root}></Route>
-    </BrowserRouter>,
-    document.getElementById('app')
+    </BrowserRouter>
 );
+
+module.exports = Routes;
