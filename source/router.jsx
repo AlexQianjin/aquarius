@@ -1,12 +1,15 @@
 "use strict";
 
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, IndexRoute } from 'react-router-dom';
 import Root from './app';
+import Main from './main';
 
 const Routes = (
     <BrowserRouter>
-        <Route path="/" component={Root}></Route>
+        <Route path="/" component={Root}>
+            <IndexRoute></IndexRoute>
+        </Route>
     </BrowserRouter>
 );
 

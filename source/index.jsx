@@ -1,11 +1,11 @@
 import React from 'react';
-import Root from './app';
+import App from './app';
+import LoginApp from './login';
+import Main from './main';
 import { render } from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+
 
 render(
-    <BrowserRouter>
-        <Route path="/" component={Root}></Route>
-    </BrowserRouter>,
+    <App/>,
     document.getElementById('app')
 );
