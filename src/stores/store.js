@@ -3,7 +3,7 @@ import rootReducer from '../reducers/login';
 import { persistState } from 'redux-devtools';
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import DevTools from '../devtools';
+import DevTools from '../components/devtools';
 
 const configureStore = compose(
     applyMiddleware(thunk),

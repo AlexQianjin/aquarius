@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { render, findDOMNode } from 'react-dom';
-import store from './stores/store';
-import { login, setLoginDetails } from './actions/login';
+import store from '../stores/store';
+import { login, setLoginDetails } from '../actions/login';
 
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
@@ -97,6 +97,4 @@ function mapStateToProps(state) {
     return { user };
 }
 
-const LoginApp = connect(mapStateToProps)(Login);
-
-export default LoginApp;
+export default connect(mapStateToProps)(Login);;
