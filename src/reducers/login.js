@@ -1,8 +1,7 @@
 'use strict';
-import { LOGIN_USER, LOGIN_FAIL } from '../actions/login';
-import { combineReducers } from 'redux';
+import { LOGIN_USER, LOGIN_FAIL} from '../constants/ActionTypes';
 
-function user(state = {
+export default function user(state = {
     message: "",
     userData: {}
 }, action) {
@@ -25,6 +24,4 @@ function user(state = {
     }
 }
 
-const rootReducer = combineReducers({ user });
 
-export default rootReducer

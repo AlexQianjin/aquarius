@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { render, findDOMNode } from 'react-dom';
 import store from '../stores/store';
@@ -10,7 +10,7 @@ import DevTools from './devtools';
 
 class Login extends Component {
     componentWillMount() {
-        const { dispatch, } = this.props;
+        const { dispatch } = this.props;
         let storedSessionLogin = sessionStorage.getItem('login');
         if (storedSessionLogin) {
             dispatch(

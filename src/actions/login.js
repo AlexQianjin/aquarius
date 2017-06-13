@@ -1,8 +1,6 @@
 'use strict';
 import fetch from 'isomorphic-fetch';
-
-export const LOGIN_USER = 'LOGIN_USER';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+import { LOGIN_USER, LOGIN_FAIL} from '../constants/ActionTypes';
 
 export function login(userData) {
     const body = {
@@ -28,6 +26,13 @@ export function login(userData) {
 }
 
 export function setLoginDetails(json) {
+    if (json.length === 0) {
+        return {
+            type: LOGIN_FAIL,
+            timestamp: Date.now()
+        }
+    }
+
     const loginData = {
         type: LOGIN_USER,
         loginResponse: json,
@@ -36,17 +41,3 @@ export function setLoginDetails(json) {
     sessionStorage.setItem('login', JSON.stringify(loginData));
     return loginData;
 }
-
-// function setLoginDetails(json) {
-//     if (json.length === 0) {
-//         return {
-//             type: LOGIN_FAIL,
-//             timestamp: Date.now()
-//         }
-//     }
-//     return {
-//         type: LOGIN_USER,
-//         loginResponse: json,
-//         timestamp: Date.now()
-//     }
-// }
