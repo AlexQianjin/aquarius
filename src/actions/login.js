@@ -2,7 +2,7 @@
 import fetch from 'isomorphic-fetch';
 import { LOGIN_USER, LOGIN_FAIL} from '../constants/ActionTypes';
 
-export function login(userData) {
+export const login = (userData) => {
     const body = {
         username: userData.username,
         password: userData.password
@@ -25,7 +25,7 @@ export function login(userData) {
     }
 }
 
-export function setLoginDetails(json) {
+export const setLoginDetails = json => {
     if (json.length === 0) {
         return {
             type: LOGIN_FAIL,
