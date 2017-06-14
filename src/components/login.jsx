@@ -17,6 +17,7 @@ class Login extends Component {
                 setLoginDetails(
                     JSON.parse(storedSessionLogin).loginResponse)
             );
+            this.props.history.push('/main');
         }
     }
     
