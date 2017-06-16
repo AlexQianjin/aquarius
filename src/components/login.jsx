@@ -28,7 +28,7 @@ class Login extends Component {
                 {
                     username: findDOMNode(this.refs.username).value,
                     password: findDOMNode(this.refs.password).value
-                }))
+                }, () => {this.props.history.push('/main')}))
     }
 
     renderWelcomeMessage() {

@@ -2,7 +2,7 @@
 import fetch from 'isomorphic-fetch';
 import { LOGIN_USER, LOGIN_FAIL} from '../constants/ActionTypes';
 
-export const login = (userData) => {
+export const login = (userData, loginCallback) => {
     const body = {
         username: userData.username,
         password: userData.password
@@ -21,11 +21,11 @@ export const login = (userData) => {
     return dispatch => {
         return fetch(`http://localhost:5000/v1/login`, options)
             .then(response => response.json())
-            .then(json => dispatch(setLoginDetails(json)))
+            .then(json => dispatch(setLoginDetails(json, loginCallback)))
     }
 }
 
-export const setLoginDetails = json => {
+export const setLoginDetails = (json, loginCallback) => {
     if (json.length === 0) {
         return {
             type: LOGIN_FAIL,
@@ -39,5 +39,6 @@ export const setLoginDetails = json => {
         timestamp: Date.now()
     };
     sessionStorage.setItem('login', JSON.stringify(loginData));
+    loginCallback();
     return loginData;
 }
