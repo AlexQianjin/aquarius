@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
-import { render, findDOMNode } from 'react-dom';
+import { render } from 'react-dom';
 import store from '../stores/store';
 import { login, setLoginDetails } from '../actions/login';
 
@@ -26,8 +26,8 @@ class Login extends Component {
         dispatch(
             login(
                 {
-                    username: findDOMNode(this.refs.username).value,
-                    password: findDOMNode(this.refs.password).value
+                    username: this.username.value,
+                    password: this.password.value
                 }, () => {this.props.history.push('/main')}))
     }
 
@@ -51,7 +51,7 @@ class Login extends Component {
                 <FormGroup>
                     <ControlLabel>Username</ControlLabel>
                     <FormControl type="text"
-                        ref="username"
+                        inputRef={(input) => {this.username = input; }}
                         placeholder="username"
                     />
                     <FormControl.Feedback />
@@ -61,7 +61,8 @@ class Login extends Component {
                 <FormGroup>
                     <ControlLabel>Password</ControlLabel>
                     <FormControl type="password"
-                        ref="password" placeholder="password"
+                        inputRef={(input) => {this.password = input; }} 
+                        placeholder="password"
                     />
                     <FormControl.Feedback />
                 </FormGroup>
