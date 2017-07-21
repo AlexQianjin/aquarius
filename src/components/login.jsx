@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { render } from 'react-dom';
 import store from '../stores/store';
-import { login, setLoginDetails } from '../actions/login';
+import { login, setLoginDetails, login_ } from '../actions/login';
 
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
@@ -10,15 +10,18 @@ import DevTools from './devtools';
 
 class Login extends Component {
     componentWillMount() {
-        const { dispatch } = this.props;
-        let storedSessionLogin = sessionStorage.getItem('login');
-        if (storedSessionLogin) {
-            dispatch(
-                setLoginDetails(
-                    JSON.parse(storedSessionLogin).loginResponse)
-            );
-            this.props.history.push('/main');
-        }
+        // const { dispatch } = this.props;
+        // let storedSessionLogin = sessionStorage.getItem('login');
+        // if (storedSessionLogin) {
+        //     dispatch(
+        //         setLoginDetails(
+        //             JSON.parse(storedSessionLogin).loginResponse)
+        //     );
+        //     this.props.history.push('/main');
+        // }
+    }
+
+    componentDidMount() {
     }
     
     handleSelect() {
@@ -31,21 +34,29 @@ class Login extends Component {
                 }, () => {this.props.history.push('/main')}))
     }
 
+    handleLogin = e => {
+        const { dispatch } = this.props;
+
+        dispatch(login_({username:this.username.value, password: this.password.value}));
+    };
+
     renderWelcomeMessage() {
-        const { user } = this.props;
-        let response;
-        if (user.userData.username) {
-            response = "Welcome " + user.userData.username;
-        }
-        else {
-            response = user.error;
-        }
-        return (<div>
-            {response}
-        </div>);
+        // const { userData, error } = this.props;
+        // let response;
+        // if (userData.username) {
+        //     response = "Welcome " + userData.username;
+        // }
+        // else {
+        //     response = error;
+        // }
+        // return (<div>
+        //     {response}
+        // </div>);
     }
 
     renderInput() {
+        const { userData } = this.props;
+
         return (<form>
             <div>
                 <FormGroup>
@@ -67,12 +78,13 @@ class Login extends Component {
                     <FormControl.Feedback />
                 </FormGroup>
             </div>
-            <Button onClick={this.handleSelect.bind(this)}>Login</Button>
+            {/* <Button onClick={this.handleSelect.bind(this)}>Login</Button>  */}
+            <Button onClick={this.handleLogin}>Login</Button>
         </form>)
     }
 
     render() {
-        const { user } = this.props;
+        const { message, userData, isFetching } = this.props;
         return (
             <Grid>
                 <DevTools store={store} />
@@ -87,16 +99,16 @@ class Login extends Component {
                         {this.renderWelcomeMessage()}
                     </Col>
                 </Row>
+                {isFetching?<h2>Loading...</h2>: ''}
             </Grid>
         );
     }
 };
 
 function mapStateToProps(state) {
-    const { user } = state;
-    const { message } = user || { message: "" };
+    const { message, userData, isFetching, posts, error } = state;
 
-    return { user };
+    return { message, userData, isFetching, posts, error };
 }
 
 export default connect(mapStateToProps)(Login);;

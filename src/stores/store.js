@@ -2,6 +2,7 @@
 import rootReducer from '../reducers/index';
 import { persistState } from 'redux-devtools';
 import { compose, createStore, applyMiddleware } from 'redux';
+
 import thunk from 'redux-thunk';
 import DevTools from '../components/devtools';
 
