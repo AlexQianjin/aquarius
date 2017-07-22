@@ -38,14 +38,12 @@ export const login_ = login => dispatch => {
             .then(response => response.json())
             .then(json => {
                 dispatch(receiveLogin(login, json));
-                console.log('/main');
                 // Listen for changes to the current location.
-const unlisten = history.listen((location, action) => {
-  // location is an object like window.location
-  console.log(action, location.pathname, location.state)
-});
+                const unlisten = history.listen((location, action) => {
+                // location is an object like window.location
+                console.log(action, location.pathname, location.state)
+                });
 
-                history.push('/main');
                 history.push('/main');
 
                 unlisten();
