@@ -1,7 +1,7 @@
 {
-  "name": "reactwebpack",
+  "name": "aquarius",
   "version": "1.0.0",
-  "description": "react webpack",
+  "description": "aquarius",
   "main": "index.js",
   "scripts": {
     "start": "node server-development.js",
@@ -45,7 +45,6 @@
   },
   "dependencies": {
     "express": "^4.15.3",
-    "history": "^4.6.3",
-    "react-router-redux": "^5.0.0-alpha.6"
+    "history": "^4.6.3"
   }
 }

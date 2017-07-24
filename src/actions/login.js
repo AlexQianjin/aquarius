@@ -5,6 +5,8 @@ import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL} from '../co
 
 const history = createHistory();
 
+export const increaseAction = {type: 'increase'};
+
 export const requestLogin = login => ({
     type: REQUEST_LOGIN_USER,
     login
@@ -17,7 +19,7 @@ export const receiveLogin = (login, json) => ({
     receviedAt: Date.now()
 });
 
-export const login_ = login => dispatch => {
+export const login = (login, callback) => dispatch => {
     dispatch(requestLogin(login));
     const body = {
         username: login.username,
@@ -33,8 +35,8 @@ export const login_ = login => dispatch => {
         body: JSON.stringify(body)
     };
     
-    // const apiUrl = `http://localhost:5000/v1/token`;
-    const apiUrl = 'https://weaponapi.herokuapp.com/v1/login';
+    const apiUrl = `http://localhost:5000/v1/token`;
+    // const apiUrl = 'https://weaponapi.herokuapp.com/v1/login';
     return fetch(apiUrl, options)
             .then(response => response.json())
             .then(json => {
@@ -46,50 +48,15 @@ export const login_ = login => dispatch => {
                 });
 
                 history.push('/main');
+                location.href = location.href;
+                // callback();
+
+                const loginData = {
+                    loginResponse: json,
+                    timestamp: Date.now()
+                };
+                sessionStorage.setItem('login', JSON.stringify(loginData));
 
                 unlisten();
-
             });
 };
-
-export const login = (userData, loginCallback) => {
-    const body = {
-        username: userData.username,
-        password: userData.password
-    };
-    const options = {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        mode: 'cors',
-        method: 'post',
-        body: JSON.stringify(body)
-    };
-    
-    const apiUrl = `http://localhost:5000/v1/token`;
-    // const apiUrl = 'https://weaponapi.herokuapp.com/v1/login';
-    return dispatch => {
-        return fetch(apiUrl, options)
-            .then(response => response.json())
-            .then(json => dispatch(setLoginDetails(json, loginCallback)))
-    }
-}
-
-export const setLoginDetails = (json, loginCallback) => {
-    if (json.length === 0) {
-        return {
-            type: LOGIN_FAIL,
-            timestamp: Date.now()
-        }
-    }
-
-    const loginData = {
-        type: LOGIN_USER,
-        loginResponse: json,
-        timestamp: Date.now()
-    };
-    sessionStorage.setItem('login', JSON.stringify(loginData));
-    loginCallback();
-    return loginData;
-}

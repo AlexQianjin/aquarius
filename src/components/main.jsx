@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 export default class Main extends React.Component{
-    handleLogOut(){
+    handleLogOut = e => {
         sessionStorage.removeItem('login');
         this.props.history.push('/');
     }
@@ -12,7 +12,7 @@ export default class Main extends React.Component{
         return (
             <div>
                 <h3>This is the main page!</h3>
-                <Button onClick={this.handleLogOut.bind(this)}>Log out</Button>
+                <Button onClick={this.handleLogOut}>Log out</Button>
             </div>
         );
     }

@@ -14,6 +14,7 @@ export default function user(state = {
         case REQUEST_LOGIN_USER:
             return {
                 ...state,
+                message: "sending",
                 isFetching: true
             };
         case RECEIVE_LOGIN_USER:
@@ -23,6 +24,7 @@ export default function user(state = {
                 posts: action.posts,
                 userData:{username: action.login.username},
                 timestamp: action.receviedAt,
+                message: "success",
                 loggedIn: true
             };
         case RECEIVE_LOGIN_FAIL:
@@ -36,5 +38,3 @@ export default function user(state = {
             return state
     }
 }
-
-
