@@ -21,6 +21,7 @@ class Login extends Component {
     }
 
     handleLogin = e => {
+        e.preventDefault();
         const { dispatch } = this.props;
 
         dispatch(login({username:this.username.value, password: this.password.value}, () => {this.props.history.push('/main')}));
@@ -37,10 +38,10 @@ class Login extends Component {
     renderInput() {
         const { userData, message } = this.props;
 
-        return (<form>
+        return (<form onSubmit={this.handleLogin}>
             <div>
                 <FormGroup>
-                    <ControlLabel>Username</ControlLabel>
+                    <ControlLabel>Username </ControlLabel>
                     <FormControl type="text"
                         inputRef={(input) => {this.username = input; }}
                         placeholder="username"
@@ -50,7 +51,7 @@ class Login extends Component {
             </div>
             <div>
                 <FormGroup>
-                    <ControlLabel>Password</ControlLabel>
+                    <ControlLabel>Password </ControlLabel>
                     <FormControl type="password"
                         inputRef={(input) => {this.password = input; }} 
                         placeholder="password"
@@ -60,7 +61,7 @@ class Login extends Component {
             </div>
             <div>{message}</div>
             {/* <Button onClick={this.handleSelect.bind(this)}>Login</Button>  */}
-            <Button onClick={this.handleLogin}>Login</Button>
+            <Button type="submit">Login</Button>
         </form>)
     }
 
