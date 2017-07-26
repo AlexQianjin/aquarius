@@ -66,7 +66,6 @@ class Login extends Component {
     }
 
     render() {
-        const { message, userData, isFetching } = this.props;
         return (
             <Grid>
                 <DevTools store={store} />
