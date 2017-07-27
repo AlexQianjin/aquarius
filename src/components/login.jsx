@@ -60,7 +60,6 @@ class Login extends Component {
                 </FormGroup>
             </div>
             <div>{message}</div>
-            {/* <Button onClick={this.handleSelect.bind(this)}>Login</Button>  */}
             <Button type="submit">Login</Button>
         </form>)
     }
