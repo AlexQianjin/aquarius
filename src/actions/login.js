@@ -5,8 +5,6 @@ import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL} from '../co
 
 const history = createHistory();
 
-export const increaseAction = {type: 'increase'};
-
 export const requestLogin = login => ({
     type: REQUEST_LOGIN_USER,
     login
