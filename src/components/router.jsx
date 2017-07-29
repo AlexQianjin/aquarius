@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, IndexRoute, Redirect } from 'react-router-dom';
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import LoginApp from './login';
 import Main from './main';
 
