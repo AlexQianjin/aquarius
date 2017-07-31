@@ -24,7 +24,7 @@ class Login extends Component {
         e.preventDefault();
         const { dispatch } = this.props;
 
-        dispatch(login({username:this.username.value, password: this.password.value}, () => {this.props.history.push('/main')}));
+        dispatch(login({username:this.username.value, password: this.password.value}, () => {console.log('login----login');this.props.history.push('/main')}));
     };
 
     renderWelcomeMessage() {
