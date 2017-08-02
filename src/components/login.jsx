@@ -91,4 +91,4 @@ function mapStateToProps(state) {
     return { message, userData, isFetching, posts, error };
 }
 
-export default withRouter(connect(mapStateToProps)(Login));
+export default connect(mapStateToProps)(Login);

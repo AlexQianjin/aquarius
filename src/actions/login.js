@@ -46,7 +46,7 @@ export const login = (login, callback) => dispatch => {
                 });
 
                 history.push('/main');
-                location.href = location.href;
+                // location.href = location.href;
                 // callback();
 
                 const loginData = {

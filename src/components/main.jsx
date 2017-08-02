@@ -5,7 +5,7 @@ import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } f
 export default class Main extends React.Component{
     handleLogOut = e => {
         sessionStorage.removeItem('login');
-        this.props.history.push('/');
+        this.props.history.push('/login');
     }
 
     render(){

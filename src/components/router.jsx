@@ -1,9 +1,10 @@
 "use strict";
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, IndexRoute, Redirect } from 'react-router-dom';
-import LoginApp from './login';
-import Main from './main';
+import { BrowserRouter as Router, Route, IndexRoute, Redirect, Switch } from 'react-router-dom';
+import LoginApp from './Login';
+import Main from './Main';
+import Container from './Container'
 
 const getLoginStatus = () => {
     let credential = sessionStorage.getItem('login');
@@ -26,8 +27,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = (
     <Router>
         <div>
-            <Route exact path="/" component={LoginApp}></Route>
-            <PrivateRoute path="/main" component={Main}></PrivateRoute>
+            <Route exact path="/login" component={LoginApp}></Route>
+            <Container>
+              <Switch>
+              <Route path="/main" component={Main}></Route>
+              </Switch>
+            </Container>
         </div>
     </Router>
 );
