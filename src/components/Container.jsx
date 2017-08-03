@@ -10,17 +10,17 @@ class Container extends Component {
   }
 
   render() {
-      console.log(this.state.loggedIn);
     if (!this.state.loggedIn) {
       return (
-        <Redirect to='/login' />
+        <Redirect to='/' />
       )
-    } else if (location.pathname === '/') {
-        console.log(location);
-      return (
-        <Redirect to='/main' />
-      )
-    }
+    } 
+    // else if (this.state.loggedIn && location.pathname === '/') {
+    //     console.log(location);
+    //   return (
+    //     <Redirect to='/main' />
+    //   )
+    // }
 
     return (
         <div className='main-layout'>

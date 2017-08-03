@@ -45,9 +45,9 @@ export const login = (login, callback) => dispatch => {
                 console.log(action, location.pathname, location.state)
                 });
 
-                history.push('/main');
+                // history.push('/main');
                 // location.href = location.href;
-                // callback();
+                callback();
 
                 const loginData = {
                     loginResponse: json,
