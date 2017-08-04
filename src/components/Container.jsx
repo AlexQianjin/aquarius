@@ -23,7 +23,7 @@ class Container extends Component {
     // }
 
     return (
-        <div className='main-layout'>
+        <div>
             {this.props.children}
         </div>
     )
