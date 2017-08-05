@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { render } from 'react-dom';
 import store from '../stores/store';
@@ -18,6 +19,8 @@ class Login extends Component {
     }
 
     componentDidMount() {
+        ReactDOM.findDOMNode(this.usernameInput).focus();
+        // this.usernameInput.focus();
     }
 
     handleLogin = e => {
@@ -45,6 +48,7 @@ class Login extends Component {
                     <FormControl type="text"
                         inputRef={(input) => {this.username = input; }}
                         placeholder="username"
+                        ref={(c)=>{this.usernameInput = c;}}
                     />
                     <FormControl.Feedback />
                 </FormGroup>
