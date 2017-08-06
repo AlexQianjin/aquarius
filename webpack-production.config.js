@@ -3,7 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 module.exports = {
     entry: [
-        './source/index'
+        './src/components/index'
     ],
     output: {
         path: path.join(__dirname, 'public', 'assets'),
@@ -11,7 +11,7 @@ module.exports = {
         publicPath: '/assets/'
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
@@ -24,10 +24,27 @@ module.exports = {
         })
     ],
     module: {
-        loaders: [{
-            tests: /\.(js|jsx)$/,
-            loaders: ['babel'],
-            include: path.join(__dirname, 'source')
+        rules: [{
+            test: /\.(js|jsx)$/,
+            exclude: /(node_modules|bower_components)/,
+            // include: path.join(__dirname, 'source'),
+            use: {
+                loader: 'babel-loader',
+                options: {
+                presets: ['es2015', 'stage-2', 'react']
+                }
+            }
+            },
+            {
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "less-loader" // compiles Less to CSS
+            }]
         }]
     },
     resolve: {
