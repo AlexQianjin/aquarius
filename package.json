@@ -16,6 +16,8 @@
     "start": "node server-development.js",
     "webpackDev": "webpack --config webpack-development.config.js",
     "build": "webpack --config webpack-production.config.js",
+    "build:dev": "webpack --env=dev --progress --profile --colors",
+    "build:dist": "webpack --env=prod --progress --profile --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
