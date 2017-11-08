@@ -7,7 +7,6 @@ import { login } from '../actions/login';
 
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import DevTools from './devtools';
 
 class Login extends Component {
     componentWillMount() {
@@ -71,7 +70,6 @@ class Login extends Component {
     render() {
         return (
             <Grid>
-                <DevTools store={store} />
                 <Row>
                     <Col xs={12}>
                         <h3> Please log in </h3>
@@ -83,7 +81,6 @@ class Login extends Component {
                         {this.renderWelcomeMessage()}
                     </Col>
                 </Row>
-                
             </Grid>
         );
     }

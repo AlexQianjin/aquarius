@@ -3,7 +3,12 @@ import { render } from 'react-dom';
 import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 export default class Main extends React.Component{
-    handleLogOut = e => {
+    constructor() {
+        super(props);
+        this.handleLogOut = this.handleLogOut.bind(this);
+    }
+
+    handleLogOut = function(e) {
         sessionStorage.removeItem('login');
         this.props.history.push('/');
     }

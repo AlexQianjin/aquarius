@@ -4,7 +4,6 @@ import store from '../stores/store';
 import Routes from './Router';
 
 import { Provider } from 'react-redux';
-import DevTools from './devtools';
 
 class App extends Component {
     render() {
