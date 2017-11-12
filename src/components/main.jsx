@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Grid, Row, Col, Button, Input, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 export default class Main extends React.Component{
     constructor() {
