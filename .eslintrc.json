@@ -1,3 +1,36 @@
 {
-    "extends": "standard"
+    "extends": "standard",
+    "parser": "babel-eslint",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,  // 可选 3 5（默认） 6 7
+        "sourceType": "module", // 可选script（默认） module
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [
+            2,
+            "tab"
+        ],
+        "no-tabs": 0,
+        "quotes": [
+            2,
+            "single"
+        ],
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/react-in-jsx-scope": 2,
+        "semi": [2, "always"],
+        "space-before-function-paren":[2, "never"]
+    }
 }

@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-class Container extends Component {
+class Container extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       loggedIn: sessionStorage.getItem('login')
-    }
+    };
   }
 
   render() {
     if (!this.state.loggedIn) {
       return (
         <Redirect to='/' />
-      )
-    } 
+      );
+    }
     // else if (this.state.loggedIn && location.pathname === '/') {
     //     console.log(location);
     //   return (
@@ -23,11 +23,11 @@ class Container extends Component {
     // }
 
     return (
-        <div>
-            {this.props.children}
-        </div>
+      <div>
+        {this.props.children}
+      </div>
     )
   }
 }
 
-export default Container
+export default Container;
