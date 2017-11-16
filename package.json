@@ -7,7 +7,7 @@
   "author": {
     "name": "Alex Qin",
     "email": "qianjin.qin@qq.com",
-    "url": "alexqin.cn"
+    "url": "http://alexqin.cn"
   },
   "engines": {
     "node": "8.1.4"
@@ -16,8 +16,8 @@
     "start": "node server-development.js",
     "webpackDev": "webpack --config webpack-development.config.js",
     "build": "webpack --config webpack-production.config.js",
-    "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:dist": "webpack --env=prod --progress --profile --colors",
+    "build:dev": "./node_modules/.bin/webpack --env=dev --progress --profile --colors",
+    "build:dist": "./node_modules/.bin/webpack --env=prod --progress --profile --colors",
     "eslint": "./node_modules/.bin/eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

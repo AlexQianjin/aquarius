@@ -1,10 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 import { login } from '../actions/login';
 
-import { connect } from 'react-redux';
-
 class Login extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		};
+	}
+
 	componentWillMount() {
 		let storedSessionLogin = sessionStorage.getItem('login');
 		if (storedSessionLogin) {
@@ -17,11 +27,24 @@ class Login extends React.Component {
 		// this.usernameInput.focus();
 	}
 
+	handleUsernameChange = e => {
+		this.setState({
+			username: e.target.value
+		});
+	};
+
+	handlePasswordChange = e => {
+		this.setState({
+			password: e.target.value
+		});
+	};
+
 	handleLogin = e => {
 		e.preventDefault();
 		const { dispatch } = this.props;
+		console.log(`${this.username}---${this.password}`);
 
-		dispatch(login({username: this.username.value, password: this.password.value}, () => { console.log('login----login'); this.props.history.push('/main'); }));
+		dispatch(login({username: this.username, password: this.password}, () => { console.log('login----login'); this.props.history.push('/main'); }));
 	};
 
 	renderWelcomeMessage() {
@@ -37,46 +60,27 @@ class Login extends React.Component {
 
 		return (<form onSubmit={this.handleLogin}>
 			<div>
-				<FormGroup>
-					<ControlLabel>Username </ControlLabel>
-					<FormControl type="text"
-						inputRef={(input) => { this.username = input; }}
-						placeholder="username"
-						ref={(c) => { this.usernameInput = c; }}
-					/>
-					<FormControl.Feedback />
-				</FormGroup>
+				<TextField id='username' value={this.username} onChange={this.handleUsernameChange}/>
 			</div>
 			<div>
-				<FormGroup>
-					<ControlLabel>Password </ControlLabel>
-					<FormControl type="password"
-						inputRef={(input) => {this.password = input; }} 
-						placeholder="password"
-					/>
-					<FormControl.Feedback />
-				</FormGroup>
+				<TextField id='password' value={this.password} onChange={this.handlePasswordChange}/>
 			</div>
 			<div>{message}</div>
-			<Button type="submit">Login</Button>
+			<RaisedButton type="submit" label='Login' primary={true}/>
 		</form>);
 	}
 
 	render() {
 		return (
-			<Grid>
-				<Row>
-					<Col xs={12}>
-						<h3> Please log in </h3>
-					</Col>
-					<Col xs={12}>
-						{this.renderInput()}
-					</Col>
-					<Col xs={12}>
-						{this.renderWelcomeMessage()}
-					</Col>
-				</Row>
-			</Grid>
+			<Paper zDepth={1} style={{height: 400, width: 400}}>
+				<h3> Please log in </h3>
+				<div>
+					{this.renderInput()}
+				</div>
+				<div>
+					{this.renderWelcomeMessage()}
+				</div>
+			</Paper>
 		);
 	}
 };

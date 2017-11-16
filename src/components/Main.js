@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class Main extends React.Component {
 	constructor(props) {
@@ -15,7 +16,7 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<h3>This is the main page!</h3>
-				<Button onClick={this.handleLogOut}>Log out</Button>
+				<RaisedButton label='Log out' onClick={this.handleLogOut} />
 			</div>
 		);
 	}
