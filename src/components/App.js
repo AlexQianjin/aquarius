@@ -1,4 +1,5 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from '../stores/store';
 import Routes from './Router';
 
@@ -8,7 +9,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				{Routes}
+				<MuiThemeProvider>
+					{Routes}
+				</MuiThemeProvider>
 			</Provider>
 		);
 	}

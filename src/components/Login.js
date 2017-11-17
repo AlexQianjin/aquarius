@@ -23,9 +23,14 @@ class Login extends React.Component {
 	}
 
 	componentDidMount() {
-		ReactDOM.findDOMNode(this.usernameInput).focus();
 		// this.usernameInput.focus();
 	}
+
+	focusUsernameInputTextField = input => {
+		if (input) {
+			setTimeout(() => { input.focus(); }, 100);
+		}
+	};
 
 	handleUsernameChange = e => {
 		this.setState({
@@ -60,7 +65,7 @@ class Login extends React.Component {
 
 		return (<form onSubmit={this.handleLogin}>
 			<div>
-				<TextField id='username' value={this.username} onChange={this.handleUsernameChange}/>
+				<TextField id='username' value={this.username} onChange={this.handleUsernameChange} ref={this.focusUsernameInputTextField}/>
 			</div>
 			<div>
 				<TextField id='password' value={this.password} onChange={this.handlePasswordChange}/>
