@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -18,6 +17,7 @@ class Login extends React.Component {
 	componentWillMount() {
 		let storedSessionLogin = sessionStorage.getItem('login');
 		if (storedSessionLogin) {
+			console.log(storedSessionLogin);
 			this.props.history.push('/main');
 		}
 	}
