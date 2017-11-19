@@ -47,9 +47,9 @@ class Login extends React.Component {
 	handleLogin = e => {
 		e.preventDefault();
 		const { dispatch } = this.props;
-		console.log(`${this.username}---${this.password}`);
+		console.log(`${this.state.username}---${this.state.password}`);
 
-		dispatch(login({username: this.username, password: this.password}, () => { console.log('login----login'); this.props.history.push('/main'); }));
+		dispatch(login({username: this.state.username, password: this.state.password}, () => { console.log('login----login'); this.props.history.push('/main'); }));
 	};
 
 	renderWelcomeMessage() {
