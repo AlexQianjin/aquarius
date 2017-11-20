@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -15,11 +16,11 @@ class Login extends React.Component {
 	}
 
 	componentWillMount() {
-		let storedSessionLogin = sessionStorage.getItem('login');
-		if (storedSessionLogin) {
-			console.log(storedSessionLogin);
-			this.props.history.push('/main');
-		}
+		// let storedSessionLogin = sessionStorage.getItem('login');
+		// if (storedSessionLogin) {
+		// 	console.log(storedSessionLogin);
+		// 	this.props.history.push('/main');
+		// }
 	}
 
 	componentDidMount() {
@@ -47,9 +48,8 @@ class Login extends React.Component {
 	handleLogin = e => {
 		e.preventDefault();
 		const { dispatch } = this.props;
-		console.log(`${this.state.username}---${this.state.password}`);
 
-		dispatch(login({username: this.state.username, password: this.state.password}, () => { console.log('login----login'); this.props.history.push('/main'); }));
+		dispatch(login({username: this.state.username, password: this.state.password}));
 	};
 
 	renderWelcomeMessage() {
@@ -71,11 +71,18 @@ class Login extends React.Component {
 				<TextField id='password' value={this.password} onChange={this.handlePasswordChange}/>
 			</div>
 			<div>{message}</div>
-			<RaisedButton type="submit" label='Login' primary={true}/>
+			<RaisedButton type='submit' label='Login' primary={true}/>
 		</form>);
 	}
 
 	render() {
+		const { loggedIn } = this.props;
+		const from = { pathname: '/main' };
+		if (loggedIn) {
+			console.log('xxx');
+			return <Redirect to={from}/>;
+		}
+
 		return (
 			<Paper zDepth={1} style={{height: 400, width: 400}}>
 				<h3> Please log in </h3>
@@ -91,9 +98,9 @@ class Login extends React.Component {
 };
 
 function mapStateToProps(state) {
-	const { message, userData, isFetching, posts, error } = state.user;
+	const { message, userData, isFetching, posts, loggedIn, error } = state.user;
 
-	return { message, userData, isFetching, posts, error };
+	return { message, userData, isFetching, posts, loggedIn, error };
 }
 
 export default connect(mapStateToProps)(Login);

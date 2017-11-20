@@ -17,7 +17,7 @@ export const receiveLogin = (login, json) => ({
 	receviedAt: Date.now()
 });
 
-export const login = (login, callback) => dispatch => {
+export const login = login => dispatch => {
 	dispatch(requestLogin(login));
 
 	const body = {
@@ -41,23 +41,17 @@ export const login = (login, callback) => dispatch => {
 	return fetch(apiUrl, options)
 		.then(response => response.json())
 		.then(json => {
+			const loginData = {
+				loginResponse: json,
+				timestamp: Date.now()
+			};
+			sessionStorage.setItem('login', JSON.stringify(loginData));
 			dispatch(receiveLogin(login, json));
 			// Listen for changes to the current location.
 			const unlisten = history.listen((location, action) => {
 			// location is an object like window.location
 				console.log(action, location.pathname, location.state);
 			});
-
-			history.push('/main');
-			location.href = location.href;
-			// callback();
-
-			const loginData = {
-				loginResponse: json,
-				timestamp: Date.now()
-			};
-			sessionStorage.setItem('login', JSON.stringify(loginData));
-
 			unlisten();
 		});
 };

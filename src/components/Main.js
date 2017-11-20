@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleLogOut = this.handleLogOut.bind(this);
@@ -21,3 +22,5 @@ export default class Main extends React.Component {
 		);
 	}
 }
+
+export default withRouter(Main);

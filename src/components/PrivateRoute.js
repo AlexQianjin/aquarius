@@ -3,7 +3,8 @@ import { Route, Redirect } from 'react-router-dom';
 
 const getLoginStatus = () => {
 	let credential = sessionStorage.getItem('login');
-	return !!credential;
+	console.log(credential);
+	return credential != null;
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
