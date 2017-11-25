@@ -1,5 +1,5 @@
 'use strict';
-import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL } from '../constants/ActionTypes';
+import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL, REQUEST_LOGOUT } from '../constants/ActionTypes';
 
 export default function user(state = {
 	message: '',
@@ -32,6 +32,13 @@ export default function user(state = {
 			...state,
 			userData: {username: action.login.username},
 			error: 'Invalid login',
+			timestamp: action.receviedAt
+		};
+	case REQUEST_LOGOUT:
+		return {
+			...state,
+			loggedIn: false,
+			message: '',
 			timestamp: action.receviedAt
 		};
 	default:

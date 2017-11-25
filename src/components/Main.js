@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
+import { logout } from '../actions/login';
 
 class Main extends React.Component {
 	constructor(props) {
@@ -10,6 +12,8 @@ class Main extends React.Component {
 
 	handleLogOut = function(e) {
 		sessionStorage.removeItem('login');
+		const { dispatch } = this.props;
+		dispatch(logout({}));
 		this.props.history.push('/');
 	}
 
@@ -23,4 +27,4 @@ class Main extends React.Component {
 	}
 }
 
-export default withRouter(Main);
+export default connect()(withRouter(Main));

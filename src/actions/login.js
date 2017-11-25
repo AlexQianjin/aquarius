@@ -1,7 +1,7 @@
 'use strict';
 import fetch from 'isomorphic-fetch';
 import createHistory from 'history/createBrowserHistory';
-import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL } from '../constants/ActionTypes';
+import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL, REQUEST_LOGOUT } from '../constants/ActionTypes';
 
 const history = createHistory();
 
@@ -55,3 +55,8 @@ export const login = login => dispatch => {
 			unlisten();
 		});
 };
+
+export const logout = logout => ({
+	type: REQUEST_LOGOUT,
+	logout
+});

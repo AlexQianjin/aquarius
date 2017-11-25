@@ -68,7 +68,7 @@ class Login extends React.Component {
 				<TextField id='username' value={this.username} onChange={this.handleUsernameChange} ref={this.focusUsernameInputTextField}/>
 			</div>
 			<div>
-				<TextField id='password' value={this.password} onChange={this.handlePasswordChange}/>
+				<TextField id='password' value={this.password} onChange={this.handlePasswordChange} type='password'/>
 			</div>
 			<div>{message}</div>
 			<RaisedButton type='submit' label='Login' primary={true}/>
