@@ -12,10 +12,10 @@ app.use(compression());
 
 var cpFile = require('cp-file');
 cpFile('assets/index.prod.html', 'public/assets/index.html')
-	.then(function() {
+	.then(function () {
 		console.log('Copied index.html');
 	});
-cpFile('assets/app.css', 'public/assets/app.css').then(function() {
+cpFile('assets/app.css', 'public/assets/app.css').then(function () {
 	console.log('Copied app.css');
 });
 
@@ -23,8 +23,8 @@ var envs = require('envs');
 app.set('environment', envs('NODE_ENV', 'production'));
 app.use(serveStatic(path.join(__dirname, 'public', 'assets')));
 
-var routes = function(app) {
-	app.get('*', function(req, res) {
+var routes = function (app) {
+	app.get('*', function (req, res) {
 		res.sendFile(path.join(__dirname, 'public',
 			'assets', 'index.html'));
 	});
@@ -35,12 +35,12 @@ routes(router);
 app.use(router);
 var server = http.createServer(app);
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 	console.log(err);
 	next(err);
 });
 app.use(errorHandler({ server: server }));
 
-app.listen(port, host, function() {
+app.listen(port, host, function () {
 	console.log('Server started at http://' + host + ':' + port);
 });
