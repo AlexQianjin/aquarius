@@ -4,4 +4,4 @@ import user from './login';
 
 const rootReducer = combineReducers({ user });
 
-export default rootReducer
+export default rootReducer;
