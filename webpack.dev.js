@@ -28,7 +28,7 @@ module.exports = {
 			use: {
 				loader: 'babel-loader',
 				options: {
-					presets: ['es2015', 'stage-2', 'react']
+					presets: ['env', 'stage-2', 'react']
 				}
 			}
 		},
@@ -37,10 +37,6 @@ module.exports = {
 			exclude: /node_modules/,
 			use: [{
 				loader: 'style-loader' // creates style nodes from JS strings
-			}, {
-				loader: 'css-loader' // translates CSS into CommonJS
-			}, {
-				loader: 'less-loader' // compiles Less to CSS
 			}]
 		}]
 	},
