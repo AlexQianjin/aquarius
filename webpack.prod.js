@@ -49,5 +49,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.css', '.less']
-	}
+	},
+	mode: 'production'
 };
