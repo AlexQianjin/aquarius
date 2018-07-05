@@ -1,7 +1,7 @@
 'use strict';
 import fetch from 'isomorphic-fetch';
 import createHistory from 'history/createBrowserHistory';
-import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_FAIL, REQUEST_LOGOUT } from '../constants/ActionTypes';
+import { REQUEST_LOGIN_USER, RECEIVE_LOGIN_USER, REQUEST_LOGOUT } from '../constants/ActionTypes';
 
 const history = createHistory();
 

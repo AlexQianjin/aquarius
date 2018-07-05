@@ -29,7 +29,7 @@ class Login extends React.Component {
 
 	focusUsernameInputTextField = input => {
 		if (input) {
-			setTimeout(() => { input.focus(); }, 100);
+			setTimeout(() => input.focus(), 100);
 		}
 	};
 
@@ -65,13 +65,13 @@ class Login extends React.Component {
 
 		return (<form onSubmit={this.handleLogin}>
 			<div>
-				<TextField id='username' value={this.username} onChange={this.handleUsernameChange} ref={this.focusUsernameInputTextField}/>
+				<TextField id="username" value={this.username} onChange={this.handleUsernameChange} ref={this.focusUsernameInputTextField}/>
 			</div>
 			<div>
-				<TextField id='password' value={this.password} onChange={this.handlePasswordChange} type='password'/>
+				<TextField id="password" value={this.password} onChange={this.handlePasswordChange} type="password"/>
 			</div>
 			<div>{message}</div>
-			<RaisedButton type='submit' label='Login' primary={true}/>
+			<RaisedButton type="submit" label="Login" primary={true}/>
 		</form>);
 	}
 
@@ -95,7 +95,7 @@ class Login extends React.Component {
 			</Paper>
 		);
 	}
-};
+}
 
 function mapStateToProps(state) {
 	const { message, userData, isFetching, posts, loggedIn, error } = state.user;
