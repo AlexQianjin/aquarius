@@ -39,7 +39,7 @@ function MonthlyCourses() {
 		const handleCourseChange = courseData => setCourseOfMonth(courseData);
 		console.log('start request');
 		axios
-			.get('http://localhost:1233/api/courses/monthly')
+			.get('/api/courses/monthly')
 			.then(response => {
 				console.log(response);
 				handleCourseChange(response.data);

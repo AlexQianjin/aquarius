@@ -1,0 +1,24 @@
+version: 2
+jobs:
+ build:
+   machine: true
+   steps:
+     - checkout 
+
+     # build front-end
+     - run: |
+         docker info
+         docker run --rm --volume="$PWD:/usr/src/app" -w /usr/src/app -it node:11.14.0-alpine /bin/sh -c "cd client && npm install && npm run build && cp -r build/* ../server/public"
+
+     # build image
+     - run: |
+         echo -e "NODE_ENV=$NODE_ENV \nPORT=$PORT \nMONGO_CONNECTION_POOLSIZE=$MONGO_CONNECTION_POOLSIZE \nMONGO_SOCKET_TIMEOUT_MS=￥MONGO_SOCKET_TIMEOUT_MS \nMONGODB_PATH=$MONGOLAB_URI" >> .env         
+         docker info
+         docker build -t nodeapp -f Dockerfile .
+     # deploy the image
+     - run: |         
+         docker login --username=$HEROKU_USERNAME --password=$HEROKU_API_KEY registry.heroku.com
+         docker tag nodeapp registry.heroku.com/$HEROKU_APP_NAME/web
+         docker push registry.heroku.com/$HEROKU_APP_NAME/web                
+         curl https://cli-assets.heroku.com/install.sh | sh
+         heroku container:release web -a $HEROKU_APP_NAME

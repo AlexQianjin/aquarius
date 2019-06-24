@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV=LOCAL&& node ./server.js",
-    "dev": "set NODE_ENV=LOCAL&& nodemon",
+    "start": "node ./server.js",
+    "dev": "nodemon",
     "test": "jest",
     "lint": "./node_modules/.bin/eslint ./src",
     "build": "npm run lint && npm run test"

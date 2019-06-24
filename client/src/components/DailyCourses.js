@@ -35,7 +35,7 @@ function DailyCourses() {
 		const handleCourseChange = courseData => setCourse(courseData);
 		console.log('start request');
 		axios
-			.get('http://localhost:1233/api/courses')
+			.get('/api/courses')
 			.then(response => {
 				console.log(response);
 				handleCourseChange(response.data);
