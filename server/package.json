@@ -7,6 +7,7 @@
     "dev": "nodemon",
     "test": "jest",
     "lint": "./node_modules/.bin/eslint ./src",
+    "postinstall": "cd ../client && npm install && npm run build && cp -r build/* ../server/public",
     "build": "npm run lint && npm run test"
   },
   "dependencies": {
