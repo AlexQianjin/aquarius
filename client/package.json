@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "./node_modules/.bin/eslint ./src",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -31,5 +32,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-react-hooks": "^2.2.0"
   }
 }
