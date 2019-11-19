@@ -10,12 +10,15 @@ MAINTAINER qianjin.qin@qq.com
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN \
-  mv .env ./server && \
-  cd server && \
+  cd client && \
+  npm install && \
+  npm run build && \
+  cp -r build/* ../server/public && \
+  cd ../server && \
   npm install
 # Define default command.
 # CMD ["npm install && npm start"]
 CMD cd server && npm start
 
 # Expose ports.
-# EXPOSE 3000
+EXPOSE 1233
