@@ -1,16 +1,16 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: nodejs-deployment
+  name: nodejs-lb-deployment
 spec:
   selector:
     matchLabels:
-      app: nodejs
+      app: nodejs-lb
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: nodejs
+        app: nodejs-lb
     spec:
       containers:
       - name: nodejs
@@ -21,14 +21,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-service
+  name: nodejs-lb-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    app: nodejs
+    app: nodejs-lb
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 1233
-      nodePort: 30666
+      nodePort: 30888
   
