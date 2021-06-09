@@ -7,22 +7,21 @@
     "dev": "nodemon",
     "test": "jest",
     "lint": "./node_modules/.bin/eslint ./src",
-    "postinstall": "cd ../client && npm install && npm run build && cp -r build/* ../server/public",
     "build": "npm run lint && npm run test"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.4",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "debug": "~4.1.1",
-    "dotenv": "^8.2.0",
+    "debug": "~4.3.1",
+    "dotenv": "^10.0.0",
     "express": "~4.17.1",
-    "loadsh": "0.0.4",
-    "moment": "^2.24.0",
-    "mongoose": "^5.7.8",
-    "morgan": "~1.9.1"
+    "loadsh": "^0.0.4",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.13",
+    "morgan": "~1.10.0"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "nodemon": "^1.19.4"
+    "eslint": "^7.28.0",
+    "nodemon": "^2.0.7"
   }
 }
