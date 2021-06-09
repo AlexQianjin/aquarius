@@ -1,0 +1,45 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" },
+    "courses":{
+        "year": 2019,
+        "month": 7,
+        "dayIndex": 0,
+        "dayofweek": "周一",
+        "courses": [
+            {
+                "cousreIndex": 0,
+                "time": "18:30 - 19:15",
+                "name": "翘臀美腿",
+                "coach": "Nico",
+                "location": "团体课教室"
+            },
+            {
+                "cousreIndex": 1,
+                "time": "19:20 - 20:05",
+                "name": "哈他瑜伽",
+                "coach": "Nico",
+                "location": "团体课教室"
+            },
+            {
+                "cousreIndex": 2,
+                "time": "20:10 - 20:55",
+                "name": "激情有氧",
+                "coach": "Tracy",
+                "location": "团体课教室"
+            },
+            {
+                "cousreIndex": 3,
+                "time": "预约制",
+                "name": "APT",
+                "coach": "Mike",
+                "location": "玻璃房"
+            }
+        ]
+    }
+  }

@@ -6,7 +6,9 @@
     "start": "node ./server.js",
     "dev": "nodemon",
     "test": "jest",
+    "mock": "./node_modules/.bin/json-server mock/db.json --port 1233 --routes mock/routes.json",
     "lint": "./node_modules/.bin/eslint ./src",
+    "postinstall": "cd ../client && npm install && npm run build && cp -r build/* ../server/public",
     "build": "npm run lint && npm run test"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^7.28.0",
+    "json-server": "^0.16.3",
     "nodemon": "^2.0.7"
   }
 }
