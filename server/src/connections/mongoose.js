@@ -3,8 +3,6 @@ const defaultTo = require('loadsh/defaultTo');
 
 let gracefulShutdown;
 
-mongoose.set('useNewUrlParser', true);
-
 const poolSize = defaultTo(Number(process.env.MONGO_CONNECTION_POOLSIZE), 20);
 // Default timeout to 5 minutes
 const socketTimeoutMS = defaultTo(
@@ -17,7 +15,9 @@ const dbpath = process.env.MONGODB_PATH;
 const createConnection = () => {
 	const serverOptions = {
 		socketTimeoutMS,
-		poolSize
+		poolSize,
+		useNewUrlParser: true,
+		useUnifiedTopology: true
 	};
 
 	console.log('Creating Mongo connection', dbpath, serverOptions);
