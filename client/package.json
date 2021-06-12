@@ -15,6 +15,7 @@
     "start": "react-scripts start",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint:fixed": "./node_modules/.bin/eslint ./src --fix",
+    "build:sass": "sass --load-path=node_modules --style=compressed --error-css --no-source-map ./src/style/styles.scss:./public/static/css/styles.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "eslint": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "sass": "^1.34.1"
   }
 }

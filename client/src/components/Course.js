@@ -19,7 +19,7 @@ function Course(courseItem, index, classes, dayofweek) {
 				<Typography className={classes.pos} variant='h5' component='h2'>
 					{courseItem.name} {bull} {courseItem.coach}
 				</Typography>
-				<Typography variant='body2' component='p'>
+				<Typography className={'success'} variant='body2' component='p'>
 					{dayofweek} {courseItem.time}
 				</Typography>
 			</CardContent>
