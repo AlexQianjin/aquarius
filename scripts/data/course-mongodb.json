@@ -1,6 +1,6 @@
 [{
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 0,
 	"dayofweek": "周一",
 	"courses": [
@@ -35,8 +35,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 1,
 	"dayofweek": "周二",
 	"courses": [
@@ -71,8 +71,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 2,
 	"dayofweek": "周三",
 	"courses": [
@@ -107,8 +107,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 3,
 	"dayofweek": "周四",
 	"courses": [
@@ -143,8 +143,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 4,
 	"dayofweek": "周五",
 	"courses": [
@@ -179,8 +179,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 5,
 	"dayofweek": "周六",
 	"courses": [
@@ -215,8 +215,8 @@
 	]
 },
 {
-	"year": 2021,
-	"month": 6,
+	"year": 2022,
+	"month": 2,
 	"dayIndex": 6,
 	"dayofweek": "周日",
 	"courses": [
