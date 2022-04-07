@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const defaultTo = require('loadsh/defaultTo');
+const defaultTo = require('lodash/defaultTo');
 
 let gracefulShutdown;
 
@@ -7,7 +7,7 @@ const poolSize = defaultTo(Number(process.env.MONGO_CONNECTION_POOLSIZE), 20);
 // Default timeout to 5 minutes
 const socketTimeoutMS = defaultTo(
 	Number(process.env.MONGO_SOCKET_TIMEOUT_MS),
-	300000
+	30000
 );
 
 const dbpath = process.env.MONGODB_PATH;
@@ -15,15 +15,12 @@ const dbpath = process.env.MONGODB_PATH;
 const createConnection = () => {
 	const serverOptions = {
 		socketTimeoutMS,
-		poolSize,
-		useNewUrlParser: true,
-		useUnifiedTopology: true
+		maxPoolSize: poolSize,
+		family: 4
 	};
 
 	console.log('Creating Mongo connection', dbpath, serverOptions);
-	return mongoose.createConnection(dbpath, {
-		...serverOptions
-	});
+	return mongoose.createConnection(dbpath, serverOptions);
 };
 
 const connections = {};

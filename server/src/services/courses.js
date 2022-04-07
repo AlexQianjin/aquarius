@@ -1,9 +1,9 @@
-let moment = require('moment');
+let dayjs = require('dayjs');
 const Course = require('../models/course');
 
 module.exports.getCourse = () => {
 	return new Promise((resolve, reject) => {
-		let now = moment();
+		let now = dayjs();
 
 		Course.findOne(
 			{
@@ -27,7 +27,7 @@ module.exports.getCourse = () => {
 
 module.exports.getMonthlyCourses = () => {
 	return new Promise((resolve, reject) => {
-		let now = moment();
+		let now = dayjs();
 
 		Course.find(
 			{

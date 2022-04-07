@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import Routes from './Routes';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/styles';
+import RouteConfig from './RouteConfig';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 
 function App() {
-	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<Routes />
-		</ThemeProvider>
-	);
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <RouteConfig />
+        </ThemeProvider>
+    );
 }
 
 export default App;
