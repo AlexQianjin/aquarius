@@ -1,7 +1,8 @@
-version: 2
+version: 2.1
 jobs:
- build:
-   machine: true
+ my-job:
+   machine:
+     image: ubuntu-2004:202201-02
    steps:
      - checkout 
 
