@@ -9,7 +9,7 @@ jobs:
      # build front-end
      - run: |
          docker info
-         docker run --rm --volume="$PWD:/usr/src/app" -w /usr/src/app -it node:lts-alpine3.15 /bin/sh -c "cd client && npm install && npm run build && cp -r build/* ../server/public"
+         docker run --rm --volume="$PWD:/usr/src/app" -w /usr/src/app -it node:14.19.1-alpine3.15 /bin/sh -c "cd client && npm install && npm run build && cp -r build/* ../server/public"
 
      # build image
      - run: |
