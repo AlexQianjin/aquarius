@@ -3,7 +3,7 @@
 # Author: Alex Qin
 
 # Pull base image.
-FROM node:14.19.1-alpine3.15
+FROM node:16.14.2-alpine3.15
 # Maintainer: qianjin.qin@qq.com
 MAINTAINER qianjin.qin@qq.com
 

@@ -4,15 +4,15 @@ For learning react
 - Front-end
   * React (create-react-app)
   * React Hooks
-  * React Router V5
+  * React Router V6
   * Axios
-  * Material UI
+  * MUI
 - Back-end
   * node
   * Express
   * nginx
 - Database
-  * Mongo
+  * MongoDB
 - DevOps
   * CI/CD (circleci)
   * Docker
