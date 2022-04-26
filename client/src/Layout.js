@@ -2,10 +2,10 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 function Layout() {
-    const linkStyleClasses = 'text-3xl font-bold no-underline inline-block ml-10 text-green-600';
+    const linkStyleClasses = 'text-3xl font-bold no-underline inline-block text-green-600 px-2';
     return (
         <div>
-            <nav style={{display: 'flex', textAlign: 'center'}}>
+            <nav style={{display: 'flex', textAlign: 'center', justifyContent: 'center'}}>
                 <Link
                     className={linkStyleClasses}
                     to='/'
