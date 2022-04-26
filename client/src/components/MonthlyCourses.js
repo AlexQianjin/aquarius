@@ -7,11 +7,14 @@ import Course from './Course';
 function renderDailyCourse(course, index) {
     return (
         <Box key={index} sx={{ marginBottom: 10 }}>
-            <Paper sx={{
-                padding: (theme) => theme.spacing(2),
-                textAlign: 'center',
-                color: (theme) => theme.palette.text.secondary
-            }}>
+            <Paper
+                className={'text-xl font-bold'}
+                sx={{
+                    padding: (theme) => theme.spacing(2),
+                    textAlign: 'center',
+                    color: (theme) => theme.palette.text.secondary,
+                }}
+            >
                 {course.year} / {course.month}
             </Paper>
             {course.courses &&
@@ -26,15 +29,15 @@ function MonthlyCourses() {
     const [courseOfMonth, setCourseOfMonth] = useState({});
 
     useEffect(() => {
-        const handleCourseChange = courseData => setCourseOfMonth(courseData);
+        const handleCourseChange = (courseData) => setCourseOfMonth(courseData);
         console.log('start request');
         axios
             .get('/api/courses/monthly')
-            .then(response => {
+            .then((response) => {
                 console.log(response);
                 handleCourseChange(response.data);
             })
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
     }, []);
 
     return (

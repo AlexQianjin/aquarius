@@ -28,7 +28,7 @@ function Course(courseItem, index, dayofweek) {
                 <Typography sx={{ marginBottom: '12px' }} variant='h5' component='h2'>
                     {courseItem.name} {bull} {courseItem.coach}
                 </Typography>
-                <Typography className={'success'} variant='body2' component='p'>
+                <Typography className={'bg-green-600 text-white'} variant='body2' component='p'>
                     {dayofweek} {courseItem.time}
                 </Typography>
             </CardContent>
