@@ -8,6 +8,7 @@
     "test": "jest",
     "mock": "./node_modules/.bin/json-server mock/db.json --port 1233 --routes mock/routes.json",
     "lint": "./node_modules/.bin/eslint ./src",
+    "lint:fix": "./node_modules/.bin/eslint --fix ./src",
     "postinstall": "cd ../client && npm install && npm run build && cp -r build/* ../server/public",
     "build": "npm run lint && npm run test"
   },
