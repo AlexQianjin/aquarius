@@ -17,3 +17,4 @@ For learning react
   * CI/CD (circleci)
   * Docker
   * Docker Compose
+  * test fork pull request
