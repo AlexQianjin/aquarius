@@ -2,11 +2,14 @@
 For learning react
 ## Technical Skill Set
 - Front-end
-  * React (create-react-app)
+  * ~~React (create-react-app)~~
+  * React TypeScript (vitejs)
+    * npm create vite@latest app -- --template react-ts
   * React Hooks
   * React Router V6
   * Axios
   * MUI
+  * tailwindcss
 - Back-end
   * node
   * Express
@@ -18,3 +21,6 @@ For learning react
   * ~~Docker~~
   * ~~Docker Compose~~
   * Migrate from Heroku to Render.com
+
+## Migration
+- client(javascript) => app(typescirpt)
