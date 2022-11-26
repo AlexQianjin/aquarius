@@ -10,10 +10,11 @@ For learning react
 - Back-end
   * node
   * Express
-  * nginx
+  * ~~nginx~~
 - Database
   * MongoDB
 - DevOps
-  * CI/CD (circleci)
-  * Docker
-  * Docker Compose
+  * ~~CI/CD (circleci)~~
+  * ~~Docker~~
+  * ~~Docker Compose~~
+  * Migrate from Heroku to Render.com
