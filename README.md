@@ -23,4 +23,4 @@ For learning react
   * Migrate from Heroku to Render.com
 
 ## Migration
-- client(javascript) => app(typescirpt)
+- client(javascript) => app(typescript)

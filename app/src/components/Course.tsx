@@ -11,17 +11,7 @@ interface CourseItem {
 }
 
 function Course(courseItem: CourseItem, index: number, dayofweek: string) {
-  const bull = (
-    <span
-      style={{
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)'
-      }}
-    >
-      •
-    </span>
-  );
+  const bull = <span className={'bullet'}>•</span>;
 
   return (
     <Card

@@ -39,3 +39,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}

@@ -27,7 +27,7 @@ function DailyCourses() {
   }, [course.year]);
 
   if (course.courses.length === 0) {
-    return null;
+    return <div>No Courses</div>;
   }
 
   return (
