@@ -9,7 +9,7 @@
     "mock": "./node_modules/.bin/json-server mock/db.json --port 1233 --routes mock/routes.json",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint:fix": "./node_modules/.bin/eslint --fix ./src",
-    "postinstall": "cd ../client && npm install && npm run build && cp -r build/* ../server/public",
+    "postinstall": "cd ../app && npm install && npm run build && cp -r dist/* ../server/public",
     "build": "npm run lint && npm run test"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "dayjs": "^1.11.0",
     "debug": "~4.3.4",
     "dotenv": "^16.0.0",
-    "express": "~4.17.3",
+    "express": "~4.18.2",
     "lodash": "^4.17.21",
     "mongoose": "^6.2.10",
     "morgan": "~1.10.0"
