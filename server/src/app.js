@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 indexRouter(app);
 
 app.route('*').get((req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
 });
 
 module.exports = app;
