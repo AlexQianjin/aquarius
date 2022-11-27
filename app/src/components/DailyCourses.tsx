@@ -11,17 +11,28 @@ interface CourseModel {
 }
 
 function DailyCourses() {
-  const initCourse: CourseModel = { courses: [], year: 2022, month: 1, dayofweek: ''};
+  const initCourse: CourseModel = {
+    courses: [],
+    year: 2022,
+    month: 1,
+    dayofweek: ''
+  };
   const [course, setCourse] = useState(initCourse);
 
   useEffect(() => {
-    const handleCourseChange = (courseData: CourseModel) => setCourse(courseData);
+    const handleCourseChange = (courseData: CourseModel) =>
+      setCourse(courseData);
     console.log('start request');
     axios
       .get('/api/courses')
       .then((response) => {
         console.log(response);
-        handleCourseChange(response.data);
+        if (
+          response.data.courses !== undefined ||
+          response.data.courses.length > 0
+        ) {
+          handleCourseChange(response.data);
+        }
       })
       .catch((error) => console.log(error));
   }, [course.year]);

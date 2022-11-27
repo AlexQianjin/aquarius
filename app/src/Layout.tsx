@@ -6,13 +6,7 @@ function Layout() {
     'text-3xl font-bold no-underline inline-block text-green-600 px-2';
   return (
     <div>
-      <nav
-        style={{
-          display: 'flex',
-          textAlign: 'center',
-          justifyContent: 'center'
-        }}
-      >
+      <nav className={'nav'}>
         <Link className={linkStyleClasses} to="/">
           今日课程
         </Link>

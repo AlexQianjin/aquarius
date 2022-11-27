@@ -45,3 +45,9 @@
   margin: 0 2px;
   transform: scale(0.8);
 }
+
+.nav {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

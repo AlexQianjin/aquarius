@@ -31,16 +31,23 @@ function MonthlyCourses() {
   const [courseOfMonth, setCourseOfMonth] = useState(initCourses);
 
   useEffect(() => {
-    const handleCourseChange = (courseData: CourseModel[]) => setCourseOfMonth(courseData);
+    const handleCourseChange = (courseData: CourseModel[]) =>
+      setCourseOfMonth(courseData);
     console.log('start request');
     axios
       .get('/api/courses/monthly')
       .then((response) => {
         console.log(response);
-        handleCourseChange(response.data);
+        if (response.data.length !== undefined && response.data.length > 0) {
+          handleCourseChange(response.data);
+        }
       })
       .catch((error) => console.log(error));
   }, []);
+
+  if (courseOfMonth.length === 0) {
+    return <div>No Courses</div>;
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
