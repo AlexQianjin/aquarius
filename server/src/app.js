@@ -10,6 +10,7 @@ const cors = require('cors');
 // });
 require('dotenv').config();
 console.log(process.env.NODE_ENV);
+console.log(process.env.NODE_RENDER, 13);
 
 const indexRouter = require('./routes/index');
 
