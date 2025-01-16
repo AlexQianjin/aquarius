@@ -1,6 +1,6 @@
 [{
-	"year": 2024,
-	"month": 12,
+	"year": 2025,
+	"month": 1,
 	"dayIndex": 0,
 	"dayofweek": "周一",
 	"courses": [
@@ -14,8 +14,8 @@
 	]
 },
 {
-	"year": 2024,
-	"month": 12,
+	"year": 2025,
+	"month": 1,
 	"dayIndex": 1,
 	"dayofweek": "周二",
 	"courses": [
@@ -29,8 +29,8 @@
 	]
 },
 {
-	"year": 2024,
-	"month": 12,
+	"year": 2025,
+	"month": 1,
 	"dayIndex": 2,
 	"dayofweek": "周三",
 	"courses": [
@@ -44,8 +44,8 @@
 	]
 },
 {
-	"year": 2024,
-	"month": 12,
+	"year": 2025,
+	"month": 1,
 	"dayIndex": 3,
 	"dayofweek": "周四",
 	"courses": [
@@ -59,8 +59,8 @@
 	]
 },
 {
-	"year": 2024,
-	"month": 12,
+	"year": 2025,
+	"month": 1,
 	"dayIndex": 4,
 	"dayofweek": "周五",
 	"courses": [
